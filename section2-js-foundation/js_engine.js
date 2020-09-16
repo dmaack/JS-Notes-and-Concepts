@@ -88,3 +88,75 @@ const isHappy = true;
 
 // We should write code that is predictable to both the computer/compiler and programmer
 
+// Why not just use machine code from the beginning?
+    // 
+
+// Call Stack and Memory Heap
+
+    // Memory Heap: to store and write information - where the memory allocation happens
+
+    // Call Stack: to keep track of where we are in the code - where the engine keeps track of where your code is in the execution
+
+    const number = 610; // allocate memory for a number
+    const string = 'some text'; // allocate memory for a string 
+    const human = { // allocate memory for an object... and it's values
+        first: 'Dominique',
+        last: 'Maack'
+    }
+
+    function calculate() {
+        const sumTotal = 4 + 5;
+        return sumTotal;
+    }
+
+    calculate()
+
+    // a region in memory which operates in first in last out mode
+
+    // Garbage Collection:
+        // it uses the mark and sweep alogrithm --> mark what you need, sweep what you dont
+    
+    // Memory Leaks:
+        let array = [];
+
+        // for ( let i =5; i > 1; i++) {
+        //     array.push(i - 1) // what happens here is an infinite loop
+        // }
+        // the garabage collection wasnt keeping up and crashed
+
+        // 3 Common Memory Leaks:
+            // Global Variables
+                // want to avoid having too many global variables
+                // youre adding more pieces of memory 
+            // Event Listeners
+                var element = document.getElementById('button');
+                element.addEventListener('click', onClick)
+                // im not removing the event listener off the page and the memory keeps getting added to and creates a memory leak
+            // setInterval
+                // referecing objects...
+
+    // Memory is limited! So to write efficient code, it's important to not have stack overflow or memory leaks
+
+// Single Threaded:
+
+    // It means that only one set of instructions is executed at one time
+    // JS is synchronous -- only one thing can happen at a time
+
+    // What problems do you see with synchronoys code?
+        // It makes it difficult if we have long running tasks
+        // imagine youre running twitter --> and they had a function that took 5sec to complete --> you wouldnt be able to click or scroll or use functionality until the function was complete
+
+    // We dont just use the JS Engine, we also use the JS Runtime to allow us to run asynchronous code
+
+// JS Runtime: 
+
+    // The Web browser is working in the background (using the Web API) 
+        // This comes with the browser (Chrome, Firefox, Safari, etc)
+        // These are applications that can do a vairety of things, http requests
+        // They are asynchronous --> This allows us to run our callstacks in the mean time
+    // You have items on the call stack and as soon as something related to the Web API is brought up, it sends to Web API, processess it and then sends it back with a callback, and as soon as the call stack is free, the callback will be pushed onto the call stack
+
+    console.log('1')
+    setTimeout(() => {console.log('2'), 1000});
+    console.log('3')
+
