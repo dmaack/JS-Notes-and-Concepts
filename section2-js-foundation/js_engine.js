@@ -160,3 +160,40 @@ const isHappy = true;
     setTimeout(() => {console.log('2'), 1000});
     console.log('3')
 
+    //JS Engine vs Runtime
+        // Engine: is like the conductor, he can read and make sense of it
+        // Runtime: is like the whole package, a musician that has all the tools to play music (music and coductor)
+
+// Node.js
+    // A JS Runtime -- a C++ program, node.exe --> it provides the runtime for us
+    // Server side platform --> it uses JS but outside the browser and allows us to have the same single threaded model and any asynchronous process can be handled the same way as WEB API JS Runtime
+    //
+
+    // Exercise: 
+        // This recursive function creates a stack overflow. How can you fix this code by still keeping the recursive call around, but only adding something that you have learned in this section to not cause this stack overflow.
+
+    //fill array with 60000 elements
+        const list = new Array(60000).join('1.1').split('.');
+        
+        function removeItemsFromList() {
+            var item = list.pop();
+        
+            if (item) {
+                // removeItemsFromList();
+                setTimeout(removeItemsFromList, 0)
+            }
+        };
+        
+        removeItemsFromList();
+
+        list
+
+// Overview:
+        // JS Engine: CallStack and Memory Heap
+            // Stack keeps track of where we are in the program
+        // Single Threaded Model: We can use the JS Runtime to have threads in the background (on browser or outside browser (Node)) 
+        
+
+    
+
+
